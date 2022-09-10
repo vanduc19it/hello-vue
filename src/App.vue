@@ -1,15 +1,41 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template> 
+  <Menu/>
+  <Content/>
+  <Task v-for ="(task, index) in tasks" :key="index" :taskData='task'/>
+  <Footer/>
+  <TagSelector/>
+  <hr/>
+  <Fillter/>
+ 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import Menu from './components/Menu.vue'
+import Content from './components/Content.vue'
+import Footer from './components/Footer.vue'
+import Task from './components/Task.vue'
+import TagSelector from './components/TagSelector.vue'
+import Fillter from './components/Fillter.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Menu,
+    Content,
+    Task,
+    TagSelector,
+    Footer,
+    Fillter,
+  },
+  data() {
+    return {
+      tasks : [
+        {todo: 'code', done: false },
+        {todo: 'ngu', done: false },
+        {todo: 'an', done: false },
+        {todo: 'luotfb', done: false }
+      ]
+    }
   }
 }
 </script>
